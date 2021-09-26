@@ -1,4 +1,4 @@
-const mysql = require('mysql12');
+const mysql = require('mysql');
 const conn =mysql.createConnection({
     host : process.env.db_host,
     user : process.env.db_user,
