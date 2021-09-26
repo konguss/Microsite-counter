@@ -14,7 +14,7 @@ $ npm run start
 
 ######################################################
 
-**#Jenkins build pipline steps**
+**Jenkins build pipline steps**
 
 The steps are performed in the jenkins pipeline mentioned in Jenkinsfile. 
 
@@ -36,7 +36,7 @@ The stage docker image is build from the setps mentioned in Dockerfile.
 
 ###########################################################. 
 #
-**standalone app **
+**Standalone app **
 
 running as standalone app comment the databse connect in app.js 
 #const conn = require('./database');
