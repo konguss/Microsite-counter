@@ -32,7 +32,7 @@ Stage 3 runs npm lint.
 
 4. build image 
 
-The stage docker image is build from the setps mentioned in Dockerfile. 
+This stage image is build using Dockerfile. 
 
 ###########################################################. 
 #
