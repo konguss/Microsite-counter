@@ -36,7 +36,7 @@ The stage docker image is build from the setps mentioned in Dockerfile.
 
 ###########################################################. 
 #
-**Standalone app **
+**Standalone app** 
 
 running as standalone app comment the databse connect in app.js 
 #const conn = require('./database');
