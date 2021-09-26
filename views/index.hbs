@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Maruphilaque Auction</title>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html;">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+   {{!--<script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.5/handlebars.min.js"></script>--}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"></script>
+
+  
+</head>
+<body>
+
+
+
+  <div class="container-fluid" style="margin-top:1%;">     
+<div class="row">
+    <div class="col-md-12">
+ <div class="row">
+     
+<!-----------------------------------------Comming lots Code----------------------> 
+     
+     {{!--<script >--}}
+     {{!--    {{#each rows.sql4}}--}}
+     {{!--var NLotNum={{this.next_id}};--}}
+     {{!--var PLotNum={{this.prev_id}};--}}
+     
+     {{!--{{/each}}--}}
+ 
+     {{!--</script>--}}
+     {{#each rows.sql4}}
+      <input type="hidden" value={{this.next_id}} class="next_val"  >
+      <input type="hidden" value={{this.prev_id}} class="prev_val"  >
+    {{/each}}
+    {{!--{{#each rows.AuctionExist}}--}}
+    
+      
+    {{!--  <input type="hidden" value={{this.status}} class="current_status"  >--}}
+    
+    {{!--{{/each}}--}}
+<div class="col-md-3" id="pets-container" >
+           <div  class="demo-content" style="height: 900px;overflow-y: scroll;">
+          <div class="list-group"  id="" >
+          {{#each rows.sql}}
+          <h4> {{title}}  </h4>
+          <input type="hidden" value={{this.id}} class="passidleft"  placeholder="">
+          <a href="https://www.maruphilaque.com/description.html?code={{this.code}}&auctionno='34'" target="_blank"><div class="list-group-item list-group-item-action flex-column align-items-start lotremove {{this.id}}">
+       <div  class="d-flex w-100 justify-content-between">
+           <div class="lotnoo" style="color: #8a2325; font-size:20px;"> Lot No. {{LotNo}}</div> </div>  
+          <div class="row" style="margin-left: 25px;" > <div class="col-xm-6">
+              <img  alt="{{this.title}}"src="https://www.maruphilaque.com/uploads/t/{{this.FirstFour}}/{{this.code}}10.jpg" />
+               <img  alt="{{this.title}}"src="https://www.maruphilaque.com/uploads/t/{{this.FirstFour}}/{{this.code}}20.jpg" />
+               </div> </div>
+              <h5 class="mb-1" style="font-size:18px;"><b>{{title}}</b></h5>
+              <strong >Estimated Price :<i class="fa fa-inr"></i>&nbsp; {{this.eastimated_price}} INR </strong>
+              </div></a>
+              {{/each}}
+              </div>
+</div>
+  </div> 
+{{!--------------------------------------------------------------------------------}}
+
+ 
+ {{#each rows.sql2}}
+<div class="col-md-3 " >
+<div class="centerlot  " id="" >
+             <div class="viewone">
+         <h5 class=" centerremove centeradd" style="text-align:center;color:white;font-size: 20px;background:green;">Current Live Lot # {{this.LotNo}}</h5>
+        </div>
+         <div class="demo-content" >
+          
+         <input type="hidden" value={{this.AuctionNo}} class="auc_no"  > 
+            <input type="hidden" value={{this.LotNo}} class="auc_pid"   > 
+             <input type="hidden" value={{this.code}} class="auc_code"   > 
+    <div class="centeradd2 viewtwo"><input type="hidden" value='{{this.Wid}}' class="passidcen"><input type="hidden" value='{{this.code}}' class="getdatacode"><input type="hidden" value='{{this.LotNo}}' class="lotno_pass"><h4 class="mb-1 "style="font-size: 20px;" ><b>{{this.title}}</b></h4><td align="right"><h5 style="font-size:19px;">Estimated Price <i class="fa fa-inr"></i>&nbsp; {{this.eastimated_price}} INR </h5></td></div>
+     <div class="viewfour">
+           <img  class="img-responsive hw" id="zoom_0003" alt="{{this.title}}" src='{{this.image1}}'><img  class="img-responsive hw" id="zoom_0003" alt="{{this.title}}" src='{{this.image2}}'>
+     {{/each}}         
+   {{#each rows.sql3  }} 
+            <div class="centeradd4"><div id="desc" style="overflow-y: scroll; max-height: 330px; font-size:18px;" >{{{this.description}}}<br/></div></div>
+        
+          </div>
+             </div>
+          </div>
+   </div> 
+ {{/each}} 
+ 
+
+   
+  
+ 
+{{!-----------------------------------------------------------------}} 
+ <div class="col-md-3 videopanel1"  >
+              
+                     <div  style="text-align:center;background: #eee; " id="hidevideo">
+                     <button type="button" class="btn btn-info hide1" id="hide1" name="hide" style="margin:auto;padding: 0px 5px;" onclick="toggleControls()">Hide Video</button>
+                     <button type="button" class="btn btn-info show1" id="show1" name="show" style="display:none; margin:auto;padding: 0px 5px;"  onclick="toggleControls()">Show Video </button>
+                   </div>
+               
+                 <div class="demo-content" style="background:white;margin-top:2%;">
+                  <div class="onevideo"  id="onevideo"> 
+                    <iframe id="myvideo" src="https://viewer.millicast.com/v2?streamId=px36n4/kgrr1sm6" allowfullscreen width="100%" height="300" align="center" frameborder="0" scrolling="no"></iframe>
+                    <br/>
+                   <br/>
+                   <br/>
+                   <div style="background-color: aliceblue;">
+                   <a href="/historydis/showhistory" class="btn btn-primary btn-lg active test_but" role="button" aria-pressed="true">Primary link</a>
+                    <span>
+        <a href="https://www.maruphilaque.com/customers/become-a-bidder.html" target="_blank"><h3 class="cLimit" style ="color:#140000;font-size: 15px;"><b>Current Bid</b></h3></a>  
+  </span>
+                   <h1 class="test"></h1>
+                  <span class=" label label-default"> <p class=" BidPrice curbid" id= " BidPrice" ></p></span>
+                <span style="display:none;" class="bidHistory11 " id="bidHistory11" > </span>
+                 <div  class="CurrentLotButton"></div>
+                   <p class="NextSlabButton" style=""></p>
+         <div class="alert alert-info adminmsg01 " id="adminmsg01">
+        <strong>Message!</strong> <b><span class="adminmsg" id="adminmsg" style="margin-left:5px; color:#8a2325;" ></span><span class="msgtime" id="msgtime" style="margin-left:60px; color:green;" ></span></b>
+         </div>  
+                   
+                    <p class="buyper" style="text-align:center; background-color:bisque;color:black;">Buyer's Premium & Taxes are added extra on Hammer Price</p>
+                   </div>
+               </div>
+               </div>
+               
+               </div>
+ 
+{{!----------------------------------------------------------------------------------}}
+
+  <div class="col-md-3 pastlots0101" >
+<div class=" five rightlot pastlotss" id="rightlots0011" >
+ <h5 style="text-align:center;color:#FF0000;font-size: 20px;background: #eee;"><button type="button" class="btn btn-info "  style="margin:auto;padding: 0px 5px;">Past Lots</button></h5> 
+ <div   id="rightlots001" class="demo-content ">
+  <div class="demo-content ">
+    <div class="list-group rightadd" id="past">
+ 
+ 
+ </div>
+
+</div>
+
+</div>
+</div>
+ </div>
+ 
+ </div>
+ </div>
+ </div>
+ 
+ </div>
+
+</body>
+
+
+
+<script type="text/javascript">
+       var _second = 1000;
+              var _minute = _second * 60;
+              var _hour = _minute * 60;
+              var _day = _hour *24
+              var timer;TimeLimit1=1000;
+              var timer1;
+        $(document).ready(function(){
+         function showRemaining()
+              {
+                 // var AuctionStatus = $(".current_status").val();
+                   var current_code=$(".auc_code").val();
+               var code=$(".getdatacode").val(); 
+               var aid=$(".lotno_pass").val();
+               var NLotNum=$(".next_val").val(); 
+               //alert(aid);
+               var config={type:2,aid:aid,code:code};
+                $.ajax('/jquery/printed-auction-live-001',{
+                  type: "POST",
+                  data: config,
+                  dataType: "json",
+                  success: function(response)
+                  {
+                 // alert(response.data.status);
+                       TimeLimit1 = TimeLimit1;
+                   isLive=0;
+                    if(response.data.status==2)
+                    {
+                //   if($(".anyBId").length>0)
+                //       {
+                //         $(".anyBId").remove();
+                //       }
+                      isLive=1;
+                    }
+                  
+                 if(response.data.start_time>response.data.now)
+                    {
+                      var server_end = response.data.end_time;
+                      var server_now = response.data.now;
+                      var client_now = server_now;
+                      var end = server_end - server_now + client_now; // this is the real end time
+                      var now=response.data.now;
+                      var distance = end - now;  
+                      //var current_code=$(".auc_code.").val();
+                     // alert(current_code);
+                       if (isNaN(distance)) 
+                      {
+                         // alert('werwerwer');
+                        clearInterval(timer);
+                          if(NLotNum)
+                          {
+                          var  ANOS=$(".auc_no").val();
+                          var  aid=$(".auc_pid").val();
+                          //alert(ANOS);
+                            $.ajax('auctt/auctt',{
+                                     type: "POST",
+                                    data:{ANOS:ANOS,aid:aid },
+                                    dataType: "json",
+                                    success: function(dataauc){
+                                       // console.log(dataauc);
+                                    }
+                                });
+                            return false;
+                          }  
+                          else {
+                          location.href=window.location.href;
+                          }
+                      }
+                    //   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    //   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    //   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    //   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    // $(".CountDownTime").html('<i class="fa fa-clock-o"></i>&nbsp;Time Remains for Pre-Live Bidding:&nbsp;<strong>'+days + "d " + hours + "h "  + minutes + "m " + seconds + "s ");
+                    }
+                       else if((response.data.AuctionStatus=='10') && (isLive=='1'))
+                    {
+                      $(".CountDownTime").html('<i class="fa fa-coffee fa-2x"></i>&nbsp;Floor bidding is pause, we\'ll get back to you soon');
+                     }
+                    else ((response.data.AuctionStatus==1) && (isLive==1))
+                    {
+                      $(".CountDownTime").html('Floor bidding is live....');
+                      }
+                      
+                if(response.data.status==2)
+                    {
+                        //alert('edewre');
+                       $(".CurrentLotButton").html('<button class="pull-right btn btn-success btn-xs">Current Lot</button>');
+                      // getBidHistory();
+                    // getBidHistory02();
+                    //     leftlot();
+                    //     centerlot();
+                    //     rightlot();
+                    } 
+                    else
+                    {
+                        // alert(current_code);
+                      if(current_code)
+                      { 
+                       // o="javascript:CreateUrlAuction('"+data.CurrentRun['LotNo']+"',2<?php echo $auction?>,1,<?php echo $aid; ?>)"; 
+                       // $(".CurrentLotButton").html('<button  class="pull-right btn btn-xs btn-success" data-toggle="tooltip" title="Current Open Lot">Current Open Lot #'+parseInt(response.data.CurrentRun['LotNo'])+'</button>');
+                      }
+                      if(response.data.CurrentRun !== null)
+                      {
+                        $(".CurrentLotButton").html('');
+                      }
+                    }
+                    if(response.data.flag)
+                    {
+                      $('.BidPriceAuction tr:last').html('<td  ><h4 style="">Current Bid<h3></td><td align="right"><h4><i class="fa fa-inr"></i>&nbsp;'+response.data.currentBid+'&nbsp;&nbsp;&nbsp;<h4 class="biddertype9" id="biddertype9"></h4> </h3></td>');
+                      $('.BidPrice').html('<td ><h5 >Current Bid:&nbsp;<h4></td><td ><h4><i class="fa fa-inr"></i>&nbsp;'+response.data.currentBid+' </h5></td><td>('+$('#bidHistory11').html()+')</td>');
+                     if(response.data.consign)
+                      {
+                        $(".NextSlabButton").parent('div').remove();
+                        $(".anyBId").remove();
+                      }
+                      else
+                      {
+                        if(response.data.IsHighestBidder==false)
+                        {
+                          disable="";
+                          if(response.data.btnDisabled==1)
+                          {
+                            disable="disabled";
+                          } 
+              var txtbox_Value = $("#txtBox").val();
+              var selectBox_Value = $("#mySelect").val();
+              var  MultipliedValue = Math.round(txtbox_Value * selectBox_Value);
+$(".NextSlabButton").html('<button type="button" class="btn01 third"  onClick="javascript:AddABid('+aid+','+response.data.cocode+',2,\'NextSlab\','+response.data.FBid+','+isLive+')">Place Next Bid &nbsp;<i class="fa fa-inr"></i> '+response.data.FBid+' <span id="demo" >('+MultipliedValue+') </span></button>') ;
+$(".NextSlabButton1").html('<input type="hidden" id="txtBox" value='+response.data.FBid+' ">');
+                        }
+                      else 
+                        {
+                          $(".NextSlabButton").html('');
+                        }
+                      }
+                      $(".msgError").html(response.data.usermsg);
+         if(response.data.pauseauction=='pause')
+         {
+             $(".pauseauction").hide();
+            $(".pausemsg").show();
+         }
+         if(response.data.pauseauction=='start')
+         {
+             $(".pauseauction").show();
+             $(".pausemsg").hide();
+         }
+                      if(response.data.cLimit)
+                      {
+                        $(".cLimit").html('<strong>Current Bid limit: '+response.data.cLimit+'</strong>');
+                        if(response.data.adminmsg != null)
+                        {
+                          $(".adminmsg01").hide();  
+                        }
+                        if(response.data.adminmsg)
+                        {
+                            $(".adminmsg01").show();
+                          $(".adminmsg").html(response.data.adminmsg);
+                        $(".msgtime").html(response.data.msgtime);
+                        }
+                        $(".soldstatus").html(response.data.soldstatus);
+                       }
+                   // timer = setTimeout(showRemaining, TimeLimit1);
+                     } 
+                    else
+                    {
+                      $(".NextSlabButton").html('<button class="btn btn-xl btn-danger"   type="button"  onclick="javascript:AddABid('+aid+','+response.data.cocode+',2,\'NextSlab\','+response.data.FBid+','+isLive+')"><i class="fa fa-gavel"></i>&nbsp;Minimum Next Bid&nbsp;<i class="fa fa-inr"></i>&nbsp;'+response.data.FBid+' <span id="demo" >(MultipliedValue) </span></button>');
+                    }
+                        
+                    }
+                });
+               var timer = setTimeout(showRemaining, TimeLimit1);
+              }
+     showRemaining(); 
+        });
+        
+     $(document).ready(function(){
+     function uplot(){
+       // alert('jkghjduysfewrf');
+         var lett = lett;
+         $.ajax('/lett',{
+                   type: "GET",
+                   data:{lett:lett},
+                  dataType: "json",
+                   success: function(rows)
+                   {
+                     //var mgroad = rows.rows.leftlot;  
+                  //console.log(rows.rows.centrelot[0]);
+                    //  console.log('********test success ********');
+                    //   bindHtmlData( rows.rows.leftlot)
+                    //  centerHtmlData(rows.rows.centrelot);
+                   // console.log(rows.rows.centrelot[0]);
+                   }
+         });
+         // var timer1 = setTimeout(uplot, TimeLimit1);
+     }
+     uplot();
+    function bindHtmlData(datas) {
+         var source = $("#cominglots0101").html();
+var templateMissions = Handlebars.compile(source);
+var template_bb = templateMissions({datas})
+ var petsContainer = document.getElementById("pets-container");
+  petsContainer.innerHTML = template_bb;
+           // $('#targetCominglots0101').html(template);
+           }
+         function centerHtmlData(rows) {
+         var source = $("#centrelots0101").html();
+var templateMissions = Handlebars.compile(source);
+var template = templateMissions({rows})
+            $('#targetCurrentlots0101').html(template);
+     };
+        });
+     
+       
+          $(document).ready(function(){
+         function getBidHistory(){
+                  var code1=$(".getdatacode").val();
+                  //alert(code1);
+                  var config={code:code1}    
+                $.ajax('historydis/showhistory',{
+                      type: "GET",
+                      data: config,
+                      dataType: "json",
+                      success: function(rows)
+                      { 
+                         // alert(rows.rows.centrelot[rows.bid]);
+                          console.log(rows);
+                    //   bidder=data.bidder;
+                    //     bid=data.bid;
+                    //     bidder1=data.bidder1;
+                    //     bid1=data.bid1;
+                    //     bidder2=data.bidder2;
+                    //     bid2=data.bid2;
+                    //     bidder3=data.bidder3;
+                    //   bid3=data.bid3;
+                        // if(bidder3== null)
+                        // {
+                        // }
+                        // else
+                        // {
+                        //     $(".bidHistory11 ").html(bidder3);
+                        //     $(".bidHistory11").removeClass('hide'); 
+                        // }
+                       
+                      }
+                  }); 
+            // console.clear();
+                }
+               getBidHistory(); 
+         });
+        
+        
+        
+        
+        
+        
+</script>
+
+
+
+
+
+</html>

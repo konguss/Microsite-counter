@@ -1,0 +1,57 @@
+
+html,
+body,
+* {
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.button-increment {
+  background-color: green;
+  border: 2px solid lighten(green, 30%);
+  margin: 0 3.5em;
+  padding: 1em;
+  outline: none;
+  width: 150px;
+
+}
+
+.button-decrement {
+  background-color: yellow;
+  border: 2px solid lighten(yellow, 30%);
+  margin: 0 3.5em;
+  padding: 1em;
+  outline: none;
+ width: 150px;
+}
+
+
+.Counters {
+  display: contents;
+}
+
+.title{
+  text-align: center;
+    font-size: 2.2em;
+}
+
+.Counter {
+  border: 2px solid black;
+  font-weight: 700;
+  margin: 2em auto;
+  padding: 2em;
+  width: 400px;
+  background-color:aqua;
+  height: 120px;
+}
+
+.count {
+  font-size: 20px;
+  text-align: right;
+  margin: 0px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+}

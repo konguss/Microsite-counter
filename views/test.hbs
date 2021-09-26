@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Maruphilaque Auction</title>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html;">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../style.css"
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+   {{!--<script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.5/handlebars.min.js"></script>--}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"></script>
+
+  
+</head>
+<body>
+
+
+<label>{{data2}}</label>
+
+ <div >
+        <p class="title">Microsite Counter by Suresh</p>
+        <div class="Counter">
+        <p id="countId" class="count">{{count}}</p>
+        </div>
+        <section class="controls">
+          <button class="button-increment" onClick=clickIncrement()>Increment</button>
+          <button class="button-decrement" onClick=clickDecrement()>Decrement</button>
+        </section>
+      </div>
+</body>
+<script>
+    function clickIncrement() {
+        debugger;
+//$("#countId").innerText = parseInt($("#countId").html()) + 1
+$("#countId").html(parseInt($("#countId").html()) + 1);
+    }
+      function clickDecrement() {
+$("#countId").html(parseInt($("#countId").html()) - 1);
+    }
+</script>
+
+<style>
+
+html,
+body,
+* {
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.button-increment {
+  background-color: green;
+  border: 2px solid lighten(green, 30%);
+  margin: 0 3.5em;
+  padding: 1em;
+  outline: none;
+  width: 150px;
+
+}
+
+.button-decrement {
+  background-color: yellow;
+  border: 2px solid lighten(yellow, 30%);
+  margin: 0 3.5em;
+  padding: 1em;
+  outline: none;
+ width: 150px;
+}
+
+
+.Counters {
+  display: contents;
+}
+
+.title{
+  text-align: center;
+    font-size: 2.2em;
+}
+
+.Counter {
+  border: 2px solid black;
+  font-weight: 700;
+  margin: 2em auto;
+  padding: 2em;
+  width: 400px;
+  background-color:aqua;
+  height: 120px;
+}
+
+.count {
+  font-size: 20px;
+  text-align: right;
+  margin: 0px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+}
+
+</style>
+</html>
